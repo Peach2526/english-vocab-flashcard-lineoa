@@ -59,7 +59,7 @@ export function getConfig(mode) {
     cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
   };
 
-  if (mode === 'send-test' || mode === 'send' || mode === 'schedule') {
+  if (mode === 'send-test' || mode === 'send-test-next' || mode === 'send' || mode === 'schedule') {
     const missing = requiredForSend.filter((key) => !process.env[key]);
     if (missing.length > 0) {
       throw new Error(`Missing environment variables: ${missing.join(', ')}`);

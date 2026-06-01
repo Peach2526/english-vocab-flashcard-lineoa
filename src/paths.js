@@ -12,3 +12,4 @@ export const logsDir = path.join(projectRoot, 'logs');
 export const storageDir = path.join(projectRoot, 'storage');
 export const vocabularyPath = path.join(dataDir, 'vocabulary.json');
 export const statePath = path.join(storageDir, 'state.json');
+export const testStatePath = path.join(storageDir, 'test-state.json');

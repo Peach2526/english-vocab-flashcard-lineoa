@@ -9,6 +9,7 @@
     "send": "node src/index.js --mode schedule",
     "schedule:run": "node src/index.js --mode schedule",
     "send:test": "node src/index.js --mode send-test --slot 08:00",
+    "send:test-next": "node src/index.js --mode send-test-next --slot 08:00",
     "render:test": "node src/index.js --mode render-test --slot 08:00"
   },
   "engines": {

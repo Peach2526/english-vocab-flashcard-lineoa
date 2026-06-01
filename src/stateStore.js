@@ -9,9 +9,9 @@ function blankState() {
   };
 }
 
-export async function readState() {
+export async function readState(filePath = statePath) {
   try {
-    const raw = await fs.readFile(statePath, 'utf8');
+    const raw = await fs.readFile(filePath, 'utf8');
     const parsed = JSON.parse(raw);
     return {
       ...blankState(),
@@ -30,7 +30,7 @@ export async function readState() {
   }
 }
 
-export async function writeState(state) {
+export async function writeState(state, filePath = statePath) {
   await fs.mkdir(storageDir, { recursive: true });
-  await fs.writeFile(statePath, `${JSON.stringify(state, null, 2)}\n`, 'utf8');
+  await fs.writeFile(filePath, `${JSON.stringify(state, null, 2)}\n`, 'utf8');
 }

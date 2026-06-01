@@ -8,6 +8,7 @@ import { uploadImages } from './uploadCloudinary.js';
 import { sendFlashcardsToLine } from './lineClient.js';
 import { lineHeader, resolveSlot, windowKey as makeWindowKey } from './time.js';
 import { cleanGeneratedArtifacts } from './cleanup.js';
+import { statePath, testStatePath } from './paths.js';
 
 function getArg(name, fallback = undefined) {
   const index = process.argv.indexOf(`--${name}`);
@@ -19,7 +20,11 @@ function isProductionMode(mode) {
 }
 
 function shouldSend(mode) {
-  return mode === 'send-test' || isProductionMode(mode);
+  return mode === 'send-test' || mode === 'send-test-next' || isProductionMode(mode);
+}
+
+function usesAdvancingTestState(mode) {
+  return mode === 'send-test-next';
 }
 
 async function main() {
@@ -30,11 +35,17 @@ async function main() {
 
   await logger.info('Run started', { mode, slot, currentWindowKey });
 
-  if (mode === 'render-test' || mode === 'send-test') {
+  if (mode === 'render-test' || mode === 'send-test' || mode === 'send-test-next') {
     await cleanGeneratedArtifacts();
   }
 
-  const state = await readState();
+  const activeStatePath = usesAdvancingTestState(mode) ? testStatePath : statePath;
+  const state = await readState(activeStatePath);
+  await logger.info('State loaded', {
+    statePath: activeStatePath,
+    productionState: activeStatePath === statePath
+  });
+
   if (isProductionMode(mode) && state.sentWindows[currentWindowKey]) {
     await logger.warn('Duplicate schedule window skipped because it already completed', {
       currentWindowKey,
@@ -82,7 +93,8 @@ async function main() {
     throw new Error(`Unsupported mode after rendering: ${mode}`);
   }
 
-  const uploadWindowKey = isProductionMode(mode) ? currentWindowKey : `test-${currentWindowKey}`;
+  const uploadPrefix = usesAdvancingTestState(mode) ? 'test-next' : 'test';
+  const uploadWindowKey = isProductionMode(mode) ? currentWindowKey : `${uploadPrefix}-${currentWindowKey}`;
   const uploadedCards = await uploadImages(renderedCards, config, uploadWindowKey);
   await logger.info('Flashcards uploaded', {
     urls: uploadedCards.map((card) => card.url)
@@ -90,6 +102,22 @@ async function main() {
 
   await sendFlashcardsToLine(uploadedCards, config, slot);
   await logger.info('LINE messages sent', { lineTargetIdExists: Boolean(config.lineTargetId), slot });
+
+  if (usesAdvancingTestState(mode)) {
+    markVocabularyUsed(state, selectedItems);
+    await writeState(state, testStatePath);
+    await logger.info('Send test-next completed and advanced separate test state only', {
+      currentWindowKey,
+      testStatePath,
+      selected: selectedItems.map((item) => ({
+        category: item.category,
+        word: item.word,
+        id: item.id,
+        usedStatus: item.usedStatus
+      }))
+    });
+    return;
+  }
 
   if (!isProductionMode(mode)) {
     await logger.info('Send test completed without marking vocabulary used or completing schedule window', {
