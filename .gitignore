@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+.env
+logs/*
+!logs/.gitkeep
+output/*
+!output/.gitkeep
+playwright-report/
+test-results/

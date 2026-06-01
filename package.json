@@ -1,0 +1,22 @@
+{
+  "name": "english-vocab-flashcard-lineoa",
+  "version": "1.0.0",
+  "description": "Send English vocabulary flashcard PNGs to a separate LINE Official Account on a daily schedule.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dry-run": "node src/index.js --mode dry-run",
+    "send": "node src/index.js --mode schedule",
+    "schedule:run": "node src/index.js --mode schedule",
+    "send:test": "node src/index.js --mode send-test --slot 08:00",
+    "render:test": "node src/index.js --mode render-test --slot 08:00"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.49.1"
+  }
+}

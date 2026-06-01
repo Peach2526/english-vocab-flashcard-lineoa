@@ -1,0 +1,608 @@
+{
+  "economics": [
+    {
+      "id": "eco-001",
+      "word": "inflation",
+      "pronunciation": "/in-FLAY-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ภาวะเงินเฟ้อ",
+      "example": "Inflation makes everyday goods more expensive.",
+      "exampleThai": "ภาวะเงินเฟ้อทำให้สินค้าประจำวันมีราคาแพงขึ้น",
+      "icon": "📈"
+    },
+    {
+      "id": "eco-002",
+      "word": "recession",
+      "pronunciation": "/ri-SESH-un/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ภาวะเศรษฐกิจถดถอย",
+      "example": "A recession can reduce jobs and business income.",
+      "exampleThai": "ภาวะเศรษฐกิจถดถอยอาจทำให้งานและรายได้ของธุรกิจลดลง",
+      "icon": "📉"
+    },
+    {
+      "id": "eco-003",
+      "word": "tariff",
+      "pronunciation": "/TAIR-if/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ภาษีนำเข้า",
+      "example": "The government raised tariffs on imported steel.",
+      "exampleThai": "รัฐบาลขึ้นภาษีนำเข้าเหล็กจากต่างประเทศ",
+      "icon": "🧾"
+    },
+    {
+      "id": "eco-004",
+      "word": "subsidy",
+      "pronunciation": "/SUB-si-dee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "เงินอุดหนุน",
+      "example": "Farmers received a subsidy to lower production costs.",
+      "exampleThai": "เกษตรกรได้รับเงินอุดหนุนเพื่อลดต้นทุนการผลิต",
+      "icon": "🌾"
+    },
+    {
+      "id": "eco-005",
+      "word": "budget",
+      "pronunciation": "/BUJ-it/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "งบประมาณ",
+      "example": "The ministry announced a larger education budget.",
+      "exampleThai": "กระทรวงประกาศงบประมาณด้านการศึกษาที่เพิ่มขึ้น",
+      "icon": "💰"
+    },
+    {
+      "id": "eco-006",
+      "word": "deficit",
+      "pronunciation": "/DEF-i-sit/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การขาดดุล",
+      "example": "A trade deficit means imports are higher than exports.",
+      "exampleThai": "การขาดดุลการค้าหมายถึงการนำเข้าสูงกว่าการส่งออก",
+      "icon": "⚖️"
+    },
+    {
+      "id": "eco-007",
+      "word": "surplus",
+      "pronunciation": "/SUR-plus/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การเกินดุล",
+      "example": "The country reported a budget surplus this year.",
+      "exampleThai": "ประเทศรายงานการเกินดุลงบประมาณในปีนี้",
+      "icon": "✅"
+    },
+    {
+      "id": "eco-008",
+      "word": "interest rate",
+      "pronunciation": "/IN-ter-est rayt/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อัตราดอกเบี้ย",
+      "example": "The central bank kept the interest rate unchanged.",
+      "exampleThai": "ธนาคารกลางคงอัตราดอกเบี้ยไว้เท่าเดิม",
+      "icon": "🏦"
+    },
+    {
+      "id": "eco-009",
+      "word": "currency",
+      "pronunciation": "/KUR-en-see/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "สกุลเงิน",
+      "example": "The currency weakened against the US dollar.",
+      "exampleThai": "สกุลเงินอ่อนค่าลงเมื่อเทียบกับดอลลาร์สหรัฐ",
+      "icon": "💱"
+    },
+    {
+      "id": "eco-010",
+      "word": "exchange rate",
+      "pronunciation": "/iks-CHAYNJ rayt/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อัตราแลกเปลี่ยน",
+      "example": "Tourists checked the exchange rate before traveling.",
+      "exampleThai": "นักท่องเที่ยวตรวจสอบอัตราแลกเปลี่ยนก่อนเดินทาง",
+      "icon": "🌐"
+    },
+    {
+      "id": "eco-011",
+      "word": "gross domestic product",
+      "pronunciation": "/grohs duh-MES-tik PROD-ukt/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ผลิตภัณฑ์มวลรวมภายในประเทศ",
+      "example": "Gross domestic product grew faster than expected.",
+      "exampleThai": "ผลิตภัณฑ์มวลรวมภายในประเทศเติบโตเร็วกว่าที่คาดไว้",
+      "icon": "🏭"
+    },
+    {
+      "id": "eco-012",
+      "word": "supply",
+      "pronunciation": "/suh-PLY/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อุปทาน",
+      "example": "Low supply pushed oil prices higher.",
+      "exampleThai": "อุปทานที่ต่ำทำให้ราคาน้ำมันสูงขึ้น",
+      "icon": "📦"
+    },
+    {
+      "id": "eco-013",
+      "word": "demand",
+      "pronunciation": "/di-MAND/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อุปสงค์",
+      "example": "Demand for electric cars is increasing.",
+      "exampleThai": "อุปสงค์ต่อรถยนต์ไฟฟ้ากำลังเพิ่มขึ้น",
+      "icon": "🔋"
+    },
+    {
+      "id": "eco-014",
+      "word": "investment",
+      "pronunciation": "/in-VEST-ment/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การลงทุน",
+      "example": "Foreign investment created new factory jobs.",
+      "exampleThai": "การลงทุนจากต่างประเทศสร้างงานโรงงานใหม่",
+      "icon": "🏗️"
+    },
+    {
+      "id": "eco-015",
+      "word": "commodity",
+      "pronunciation": "/kuh-MOD-i-tee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "สินค้าโภคภัณฑ์",
+      "example": "Rice is an important agricultural commodity.",
+      "exampleThai": "ข้าวเป็นสินค้าโภคภัณฑ์ทางการเกษตรที่สำคัญ",
+      "icon": "🌾"
+    },
+    {
+      "id": "eco-016",
+      "word": "monopoly",
+      "pronunciation": "/muh-NOP-uh-lee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การผูกขาด",
+      "example": "A monopoly can limit consumer choice.",
+      "exampleThai": "การผูกขาดอาจจำกัดทางเลือกของผู้บริโภค",
+      "icon": "🔒"
+    },
+    {
+      "id": "eco-017",
+      "word": "market share",
+      "pronunciation": "/MAR-kit shair/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ส่วนแบ่งตลาด",
+      "example": "The company gained market share after lowering prices.",
+      "exampleThai": "บริษัทได้ส่วนแบ่งตลาดเพิ่มขึ้นหลังลดราคา",
+      "icon": "🥧"
+    },
+    {
+      "id": "eco-018",
+      "word": "unemployment",
+      "pronunciation": "/un-em-PLOY-ment/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การว่างงาน",
+      "example": "Unemployment fell as the economy recovered.",
+      "exampleThai": "การว่างงานลดลงเมื่อเศรษฐกิจฟื้นตัว",
+      "icon": "👷"
+    },
+    {
+      "id": "eco-019",
+      "word": "stimulus",
+      "pronunciation": "/STIM-yuh-lus/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "มาตรการกระตุ้นเศรษฐกิจ",
+      "example": "The stimulus helped small businesses survive.",
+      "exampleThai": "มาตรการกระตุ้นเศรษฐกิจช่วยให้ธุรกิจขนาดเล็กอยู่รอด",
+      "icon": "🚀"
+    },
+    {
+      "id": "eco-020",
+      "word": "austerity",
+      "pronunciation": "/aw-STER-i-tee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "นโยบายรัดเข็มขัด",
+      "example": "Austerity measures reduced public spending.",
+      "exampleThai": "นโยบายรัดเข็มขัดลดการใช้จ่ายภาครัฐ",
+      "icon": "✂️"
+    }
+  ],
+  "politics": [
+    {
+      "id": "pol-001",
+      "word": "election",
+      "pronunciation": "/i-LEK-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การเลือกตั้ง",
+      "example": "The election will be held next month.",
+      "exampleThai": "การเลือกตั้งจะจัดขึ้นในเดือนหน้า",
+      "icon": "🗳️"
+    },
+    {
+      "id": "pol-002",
+      "word": "parliament",
+      "pronunciation": "/PAR-luh-ment/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "รัฐสภา",
+      "example": "Parliament debated the new law for three hours.",
+      "exampleThai": "รัฐสภาอภิปรายกฎหมายใหม่เป็นเวลาสามชั่วโมง",
+      "icon": "🏛️"
+    },
+    {
+      "id": "pol-003",
+      "word": "cabinet",
+      "pronunciation": "/KAB-i-net/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "คณะรัฐมนตรี",
+      "example": "The cabinet approved the emergency budget.",
+      "exampleThai": "คณะรัฐมนตรีอนุมัติงบประมาณฉุกเฉิน",
+      "icon": "👥"
+    },
+    {
+      "id": "pol-004",
+      "word": "constitution",
+      "pronunciation": "/kon-sti-TOO-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "รัฐธรรมนูญ",
+      "example": "The constitution protects basic rights.",
+      "exampleThai": "รัฐธรรมนูญคุ้มครองสิทธิขั้นพื้นฐาน",
+      "icon": "📜"
+    },
+    {
+      "id": "pol-005",
+      "word": "coalition",
+      "pronunciation": "/koh-uh-LISH-un/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "พรรคร่วมรัฐบาล",
+      "example": "Several parties formed a coalition government.",
+      "exampleThai": "หลายพรรคจัดตั้งรัฐบาลผสม",
+      "icon": "🤝"
+    },
+    {
+      "id": "pol-006",
+      "word": "opposition",
+      "pronunciation": "/op-uh-ZISH-un/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ฝ่ายค้าน",
+      "example": "The opposition criticized the tax proposal.",
+      "exampleThai": "ฝ่ายค้านวิจารณ์ข้อเสนอด้านภาษี",
+      "icon": "🎙️"
+    },
+    {
+      "id": "pol-007",
+      "word": "referendum",
+      "pronunciation": "/ref-uh-REN-dum/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ประชามติ",
+      "example": "Citizens voted in a national referendum.",
+      "exampleThai": "ประชาชนลงคะแนนในการทำประชามติระดับชาติ",
+      "icon": "✅"
+    },
+    {
+      "id": "pol-008",
+      "word": "diplomacy",
+      "pronunciation": "/di-PLOH-muh-see/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การทูต",
+      "example": "Diplomacy helped reduce tension between the two countries.",
+      "exampleThai": "การทูตช่วยลดความตึงเครียดระหว่างสองประเทศ",
+      "icon": "🌍"
+    },
+    {
+      "id": "pol-009",
+      "word": "sanction",
+      "pronunciation": "/SANK-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "มาตรการคว่ำบาตร",
+      "example": "The sanctions targeted senior officials.",
+      "exampleThai": "มาตรการคว่ำบาตรมุ่งเป้าไปที่เจ้าหน้าที่ระดับสูง",
+      "icon": "🚫"
+    },
+    {
+      "id": "pol-010",
+      "word": "policy",
+      "pronunciation": "/POL-uh-see/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "นโยบาย",
+      "example": "The new policy focuses on clean energy.",
+      "exampleThai": "นโยบายใหม่มุ่งเน้นพลังงานสะอาด",
+      "icon": "📋"
+    },
+    {
+      "id": "pol-011",
+      "word": "legislation",
+      "pronunciation": "/lej-is-LAY-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "กฎหมายที่ออกโดยสภา",
+      "example": "The legislation passed with strong support.",
+      "exampleThai": "กฎหมายฉบับนี้ผ่านด้วยเสียงสนับสนุนอย่างมาก",
+      "icon": "⚖️"
+    },
+    {
+      "id": "pol-012",
+      "word": "sovereignty",
+      "pronunciation": "/SOV-rin-tee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อธิปไตย",
+      "example": "The treaty respects each nation's sovereignty.",
+      "exampleThai": "สนธิสัญญาเคารพอธิปไตยของแต่ละประเทศ",
+      "icon": "🛡️"
+    },
+    {
+      "id": "pol-013",
+      "word": "campaign",
+      "pronunciation": "/kam-PAYN/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การรณรงค์หาเสียง",
+      "example": "The campaign focused on healthcare and jobs.",
+      "exampleThai": "การรณรงค์หาเสียงมุ่งเน้นเรื่องสาธารณสุขและงาน",
+      "icon": "📣"
+    },
+    {
+      "id": "pol-014",
+      "word": "ballot",
+      "pronunciation": "/BAL-ut/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "บัตรลงคะแนน",
+      "example": "Voters placed their ballots in the box.",
+      "exampleThai": "ผู้มีสิทธิเลือกตั้งใส่บัตรลงคะแนนลงในกล่อง",
+      "icon": "🗳️"
+    },
+    {
+      "id": "pol-015",
+      "word": "governance",
+      "pronunciation": "/GUV-er-nuns/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ธรรมาภิบาล",
+      "example": "Good governance requires transparency.",
+      "exampleThai": "ธรรมาภิบาลที่ดีต้องมีความโปร่งใส",
+      "icon": "🔎"
+    },
+    {
+      "id": "pol-016",
+      "word": "bureaucracy",
+      "pronunciation": "/byoo-ROK-ruh-see/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ระบบราชการ",
+      "example": "Bureaucracy can slow down public services.",
+      "exampleThai": "ระบบราชการอาจทำให้บริการสาธารณะล่าช้า",
+      "icon": "🗂️"
+    },
+    {
+      "id": "pol-017",
+      "word": "amendment",
+      "pronunciation": "/uh-MEND-ment/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การแก้ไขเพิ่มเติมกฎหมาย",
+      "example": "Lawmakers proposed an amendment to the bill.",
+      "exampleThai": "ฝ่ายนิติบัญญัติเสนอการแก้ไขเพิ่มเติมร่างกฎหมาย",
+      "icon": "✍️"
+    },
+    {
+      "id": "pol-018",
+      "word": "mandate",
+      "pronunciation": "/MAN-dayt/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อำนาจที่ได้รับมอบหมายจากประชาชน",
+      "example": "The president claimed a clear mandate to reform.",
+      "exampleThai": "ประธานาธิบดีอ้างว่าได้รับอำนาจชัดเจนจากประชาชนให้ปฏิรูป",
+      "icon": "📌"
+    },
+    {
+      "id": "pol-019",
+      "word": "alliance",
+      "pronunciation": "/uh-LY-uns/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "พันธมิตร",
+      "example": "The alliance agreed to coordinate their strategy.",
+      "exampleThai": "พันธมิตรตกลงประสานยุทธศาสตร์ร่วมกัน",
+      "icon": "🔗"
+    },
+    {
+      "id": "pol-020",
+      "word": "censorship",
+      "pronunciation": "/SEN-ser-ship/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การเซ็นเซอร์",
+      "example": "Journalists warned that censorship harms free speech.",
+      "exampleThai": "นักข่าวเตือนว่าการเซ็นเซอร์ทำลายเสรีภาพในการพูด",
+      "icon": "📰"
+    }
+  ],
+  "military": [
+    {
+      "id": "mil-001",
+      "word": "deployment",
+      "pronunciation": "/di-PLOY-ment/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การเคลื่อนกำลังพล",
+      "example": "The deployment began before sunrise.",
+      "exampleThai": "การเคลื่อนกำลังพลเริ่มขึ้นก่อนพระอาทิตย์ขึ้น",
+      "icon": "🚚"
+    },
+    {
+      "id": "mil-002",
+      "word": "ceasefire",
+      "pronunciation": "/SEES-fy-er/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การหยุดยิง",
+      "example": "Both sides agreed to a temporary ceasefire.",
+      "exampleThai": "ทั้งสองฝ่ายตกลงหยุดยิงชั่วคราว",
+      "icon": "🕊️"
+    },
+    {
+      "id": "mil-003",
+      "word": "artillery",
+      "pronunciation": "/ar-TIL-uh-ree/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ปืนใหญ่",
+      "example": "Artillery units supported the defensive line.",
+      "exampleThai": "หน่วยปืนใหญ่สนับสนุนแนวป้องกัน",
+      "icon": "🎯"
+    },
+    {
+      "id": "mil-004",
+      "word": "infantry",
+      "pronunciation": "/IN-fun-tree/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ทหารราบ",
+      "example": "The infantry advanced carefully through the village.",
+      "exampleThai": "ทหารราบเคลื่อนที่อย่างระมัดระวังผ่านหมู่บ้าน",
+      "icon": "🥾"
+    },
+    {
+      "id": "mil-005",
+      "word": "armored vehicle",
+      "pronunciation": "/AR-merd VEE-hi-kul/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ยานเกราะ",
+      "example": "Armored vehicles protected the convoy.",
+      "exampleThai": "ยานเกราะคุ้มกันขบวนรถ",
+      "icon": "🛞"
+    },
+    {
+      "id": "mil-006",
+      "word": "air defense",
+      "pronunciation": "/air di-FENS/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ระบบป้องกันภัยทางอากาศ",
+      "example": "Air defense systems monitored the sky.",
+      "exampleThai": "ระบบป้องกันภัยทางอากาศเฝ้าตรวจท้องฟ้า",
+      "icon": "🛡️"
+    },
+    {
+      "id": "mil-007",
+      "word": "intelligence",
+      "pronunciation": "/in-TEL-i-jens/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ข่าวกรอง",
+      "example": "Commanders relied on accurate intelligence.",
+      "exampleThai": "ผู้บังคับบัญชาพึ่งพาข่าวกรองที่แม่นยำ",
+      "icon": "🛰️"
+    },
+    {
+      "id": "mil-008",
+      "word": "reconnaissance",
+      "pronunciation": "/ri-KON-uh-suns/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การลาดตระเวนหาข่าว",
+      "example": "The drone performed reconnaissance near the border.",
+      "exampleThai": "โดรนทำการลาดตระเวนหาข่าวใกล้ชายแดน",
+      "icon": "🛩️"
+    },
+    {
+      "id": "mil-009",
+      "word": "logistics",
+      "pronunciation": "/loh-JIS-tiks/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การส่งกำลังบำรุง",
+      "example": "Good logistics keep troops supplied.",
+      "exampleThai": "การส่งกำลังบำรุงที่ดีทำให้ทหารมีเสบียงพร้อม",
+      "icon": "📦"
+    },
+    {
+      "id": "mil-010",
+      "word": "command",
+      "pronunciation": "/kuh-MAND/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การบังคับบัญชา",
+      "example": "The general took command of the operation.",
+      "exampleThai": "นายพลเข้าบังคับบัญชาปฏิบัติการ",
+      "icon": "⭐"
+    },
+    {
+      "id": "mil-011",
+      "word": "operation",
+      "pronunciation": "/op-uh-RAY-shun/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ปฏิบัติการ",
+      "example": "The rescue operation lasted all night.",
+      "exampleThai": "ปฏิบัติการกู้ภัยดำเนินไปตลอดทั้งคืน",
+      "icon": "🧭"
+    },
+    {
+      "id": "mil-012",
+      "word": "convoy",
+      "pronunciation": "/KON-voy/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ขบวนยานพาหนะ",
+      "example": "The convoy delivered food and medical supplies.",
+      "exampleThai": "ขบวนยานพาหนะนำอาหารและเวชภัณฑ์ไปส่ง",
+      "icon": "🚛"
+    },
+    {
+      "id": "mil-013",
+      "word": "naval",
+      "pronunciation": "/NAY-vul/",
+      "partOfSpeech": "adjective",
+      "thaiMeaning": "เกี่ยวกับกองทัพเรือ",
+      "example": "Naval forces patrolled the sea route.",
+      "exampleThai": "กองกำลังทางเรือลาดตระเวนเส้นทางทะเล",
+      "icon": "⚓"
+    },
+    {
+      "id": "mil-014",
+      "word": "airstrike",
+      "pronunciation": "/AIR-stryk/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การโจมตีทางอากาศ",
+      "example": "Officials reported an airstrike near the base.",
+      "exampleThai": "เจ้าหน้าที่รายงานการโจมตีทางอากาศใกล้ฐานทัพ",
+      "icon": "✈️"
+    },
+    {
+      "id": "mil-015",
+      "word": "drone",
+      "pronunciation": "/drohn/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "อากาศยานไร้คนขับ",
+      "example": "A drone observed movement along the road.",
+      "exampleThai": "อากาศยานไร้คนขับสังเกตการเคลื่อนไหวตามถนน",
+      "icon": "🛩️"
+    },
+    {
+      "id": "mil-016",
+      "word": "border",
+      "pronunciation": "/BOR-der/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ชายแดน",
+      "example": "Troops increased patrols along the border.",
+      "exampleThai": "ทหารเพิ่มการลาดตระเวนตามชายแดน",
+      "icon": "🗺️"
+    },
+    {
+      "id": "mil-017",
+      "word": "deterrence",
+      "pronunciation": "/di-TUR-ens/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "การป้องปราม",
+      "example": "Deterrence aims to prevent an attack.",
+      "exampleThai": "การป้องปรามมีเป้าหมายเพื่อป้องกันการโจมตี",
+      "icon": "🛡️"
+    },
+    {
+      "id": "mil-018",
+      "word": "munition",
+      "pronunciation": "/myoo-NISH-un/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ยุทโธปกรณ์หรือกระสุน",
+      "example": "The report listed several types of munitions.",
+      "exampleThai": "รายงานระบุยุทโธปกรณ์หรือกระสุนหลายประเภท",
+      "icon": "📦"
+    },
+    {
+      "id": "mil-019",
+      "word": "base",
+      "pronunciation": "/bays/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "ฐานทัพ",
+      "example": "The aircraft returned safely to the base.",
+      "exampleThai": "เครื่องบินกลับสู่ฐานทัพอย่างปลอดภัย",
+      "icon": "🏕️"
+    },
+    {
+      "id": "mil-020",
+      "word": "treaty",
+      "pronunciation": "/TREE-tee/",
+      "partOfSpeech": "noun",
+      "thaiMeaning": "สนธิสัญญา",
+      "example": "The treaty limited certain weapons.",
+      "exampleThai": "สนธิสัญญาจำกัดอาวุธบางประเภท",
+      "icon": "📜"
+    }
+  ]
+}
