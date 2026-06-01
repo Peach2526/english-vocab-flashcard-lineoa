@@ -45,6 +45,8 @@ jobs:
 
       - name: Install browser runtime
         run: npx playwright install --with-deps chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: "0"
 
       - name: Resolve schedule slot
         id: slot
