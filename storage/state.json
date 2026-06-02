@@ -1,8 +1,29 @@
 {
   "usedIds": {
-    "economics": [],
-    "politics": [],
-    "military": []
+    "economics": [
+      "eco-001"
+    ],
+    "politics": [
+      "pol-001"
+    ],
+    "military": [
+      "mil-001"
+    ]
   },
-  "sentWindows": {}
+  "sentWindows": {
+    "2026-06-02T08:00+07:00": {
+      "sentAt": "2026-06-02T02:24:11.970Z",
+      "slot": "08:00",
+      "itemIds": [
+        "eco-001",
+        "pol-001",
+        "mil-001"
+      ],
+      "imageUrls": [
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1780367049/english-vocab-flashcards/2026-06-02T0800%2B0700/economics-eco-001.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1780367049/english-vocab-flashcards/2026-06-02T0800%2B0700/politics-pol-001.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1780367050/english-vocab-flashcards/2026-06-02T0800%2B0700/military-mil-001.png"
+      ]
+    }
+  }
 }
