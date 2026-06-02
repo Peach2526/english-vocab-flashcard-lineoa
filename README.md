@@ -187,9 +187,11 @@ It supports:
 
 Manual options:
 
-- `08:00`: production send for the 08:00 window
-- `12:00`: production send for the 12:00 window
-- `test`: test send that does not update `storage/state.json`
+- `08:00`: manual test-next send for the 08:00 slot; does not update `storage/state.json`
+- `12:00`: manual test-next send for the 12:00 slot; does not update `storage/state.json`
+- `test`: basic test send that does not update `storage/state.json`
+
+Only scheduled runs update production `storage/state.json`. This prevents a manual test from marking a real 08:00 or 12:00 production window as completed before the actual schedule time.
 
 After a successful production send, GitHub Actions commits and pushes only:
 

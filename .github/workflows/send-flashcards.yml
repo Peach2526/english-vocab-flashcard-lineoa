@@ -69,11 +69,23 @@ jobs:
                 ;;
             esac
           else
-            echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
+            if [[ "${{ inputs.slot }}" == "test" ]]; then
+              echo "slot=08:00" >> "$GITHUB_OUTPUT"
+              echo "test_mode=basic" >> "$GITHUB_OUTPUT"
+            else
+              echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
+              echo "test_mode=next" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            echo "production=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "production=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Send flashcards test
-        if: steps.slot.outputs.slot == 'test'
+        if: steps.slot.outputs.production == 'false' && steps.slot.outputs.test_mode == 'basic'
         run: npm run send:test
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
@@ -82,8 +94,18 @@ jobs:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
+      - name: Send flashcards test-next
+        if: steps.slot.outputs.production == 'false' && steps.slot.outputs.test_mode == 'next'
+        run: node src/index.js --mode send-test-next --slot "${{ steps.slot.outputs.slot }}"
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_TARGET_ID: ${{ secrets.LINE_TARGET_ID }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+
       - name: Send flashcards
-        if: steps.slot.outputs.slot != 'test'
+        if: steps.slot.outputs.production == 'true'
         run: npm run schedule:run -- --slot "${{ steps.slot.outputs.slot }}"
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
@@ -93,7 +115,7 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
       - name: Verify only safe state changes can be committed
-        if: steps.slot.outputs.slot != 'test'
+        if: steps.slot.outputs.production == 'true'
         shell: bash
         run: |
           git status --short
@@ -109,7 +131,7 @@ jobs:
           fi
 
       - name: Commit state update
-        if: steps.slot.outputs.slot != 'test'
+        if: steps.slot.outputs.production == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
