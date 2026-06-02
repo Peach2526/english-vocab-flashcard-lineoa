@@ -14,8 +14,10 @@ The production schedule sends 3 flashcards per run:
 
 Runs:
 
-- `08:00 Asia/Bangkok`, using cron `0 1 * * *`
-- `12:00 Asia/Bangkok`, using cron `0 5 * * *`
+- `08:00 Asia/Bangkok`, using cron `0,5 1 * * *`
+- `12:00 Asia/Bangkok`, using cron `0,5 5 * * *`
+
+GitHub scheduled workflows can be delayed or dropped during high-load periods. The extra minute-5 run is a backup. It uses the same production window key, so duplicate protection prevents a second send if the minute-0 run already completed.
 
 Production window keys are always:
 
@@ -217,5 +219,3 @@ Cards are rendered from:
 Playwright captures only the `.flashcard` container and writes fresh PNG files to `output/`.
 
 The renderer does not use unrelated sample photos, screenshots, or AI-generated text images.
-# english-vocab-flashcard-lineoa
-

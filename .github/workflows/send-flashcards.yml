@@ -2,8 +2,8 @@ name: Send English Vocabulary Flashcards
 
 on:
   schedule:
-    - cron: "0 1 * * *"
-    - cron: "0 5 * * *"
+    - cron: "0,5 1 * * *"
+    - cron: "0,5 5 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -55,10 +55,19 @@ jobs:
         id: slot
         shell: bash
         run: |
-          if [[ "${{ github.event_name }}" == "schedule" && "${{ github.event.schedule }}" == "0 1 * * *" ]]; then
-            echo "slot=08:00" >> "$GITHUB_OUTPUT"
-          elif [[ "${{ github.event_name }}" == "schedule" && "${{ github.event.schedule }}" == "0 5 * * *" ]]; then
-            echo "slot=12:00" >> "$GITHUB_OUTPUT"
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            case "${{ github.event.schedule }}" in
+              "0,5 1 * * *"|"0 1 * * *"|"5 1 * * *")
+                echo "slot=08:00" >> "$GITHUB_OUTPUT"
+                ;;
+              "0,5 5 * * *"|"0 5 * * *"|"5 5 * * *")
+                echo "slot=12:00" >> "$GITHUB_OUTPUT"
+                ;;
+              *)
+                echo "::error::Unknown schedule: ${{ github.event.schedule }}"
+                exit 1
+                ;;
+            esac
           else
             echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
           fi
