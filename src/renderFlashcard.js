@@ -64,7 +64,9 @@ export async function renderFlashcards(items, slot) {
       const htmlPath = path.join(outputDir, `${baseName}.html`);
       const outputPath = path.join(outputDir, `${baseName}.png`);
 
-      if (!html.includes(item.word) || !html.includes(item.example) || !html.includes(item.thaiMeaning)) {
+      const requiredRenderedValues = [item.word, item.example, item.thaiMeaning].map(escapeHtml);
+      const missingValues = requiredRenderedValues.filter((value) => !html.includes(value));
+      if (missingValues.length > 0) {
         throw new Error(`Rendered HTML is missing vocabulary data for ${item.category}:${item.id}`);
       }
 
