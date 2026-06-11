@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "0,5 1 * * *"
     - cron: "0,5 5 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -15,6 +16,7 @@ on:
           - "08:00"
           - "12:00"
           - "test"
+          - "catch-up"
 
 permissions:
   contents: write
@@ -63,6 +65,9 @@ jobs:
               "0,5 5 * * *"|"0 5 * * *"|"5 5 * * *")
                 echo "slot=12:00" >> "$GITHUB_OUTPUT"
                 ;;
+              "*/15 * * * *")
+                echo "slot=catch-up" >> "$GITHUB_OUTPUT"
+                ;;
               *)
                 echo "::error::Unknown schedule: ${{ github.event.schedule }}"
                 exit 1
@@ -72,13 +77,15 @@ jobs:
             if [[ "${{ inputs.slot }}" == "test" ]]; then
               echo "slot=08:00" >> "$GITHUB_OUTPUT"
               echo "test_mode=basic" >> "$GITHUB_OUTPUT"
+            elif [[ "${{ inputs.slot }}" == "catch-up" ]]; then
+              echo "slot=catch-up" >> "$GITHUB_OUTPUT"
             else
               echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
               echo "test_mode=next" >> "$GITHUB_OUTPUT"
             fi
           fi
 
-          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+          if [[ "${{ github.event_name }}" == "schedule" || "${{ inputs.slot }}" == "catch-up" ]]; then
             echo "production=true" >> "$GITHUB_OUTPUT"
           else
             echo "production=false" >> "$GITHUB_OUTPUT"
@@ -105,8 +112,18 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
       - name: Send flashcards
-        if: steps.slot.outputs.production == 'true'
+        if: steps.slot.outputs.production == 'true' && steps.slot.outputs.slot != 'catch-up'
         run: npm run schedule:run -- --slot "${{ steps.slot.outputs.slot }}"
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_TARGET_ID: ${{ secrets.LINE_TARGET_ID }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+
+      - name: Catch up due flashcards
+        if: steps.slot.outputs.production == 'true' && steps.slot.outputs.slot == 'catch-up'
+        run: npm run schedule:catch-up
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_TARGET_ID: ${{ secrets.LINE_TARGET_ID }}

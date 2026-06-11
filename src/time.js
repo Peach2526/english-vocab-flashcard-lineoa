@@ -34,3 +34,19 @@ export function windowKey(slot, date = new Date()) {
 export function lineHeader(slot) {
   return `\u{1F4D8} English Vocabulary Flashcards \u2014 ${slot}`;
 }
+
+export function dueSlotsForBangkokNow(date = new Date()) {
+  const parts = bangkokDateParts(date);
+  const currentMinutes = Number(parts.hour) * 60 + Number(parts.minute);
+  const slots = [];
+
+  if (currentMinutes >= 8 * 60) {
+    slots.push('08:00');
+  }
+
+  if (currentMinutes >= 12 * 60) {
+    slots.push('12:00');
+  }
+
+  return slots;
+}

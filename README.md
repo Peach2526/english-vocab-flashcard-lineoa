@@ -16,8 +16,11 @@ Runs:
 
 - `08:00 Asia/Bangkok`, using cron `0,5 1 * * *`
 - `12:00 Asia/Bangkok`, using cron `0,5 5 * * *`
+- catch-up monitor every 15 minutes, using cron `*/15 * * * *`
 
 GitHub scheduled workflows can be delayed or dropped during high-load periods. The extra minute-5 run is a backup. It uses the same production window key, so duplicate protection prevents a second send if the minute-0 run already completed.
+
+The catch-up monitor checks the current Thailand time. If `08:00` or `12:00` is already due and that window is still missing from `storage/state.json`, it sends the missing flashcards. If the window already completed, duplicate protection skips it.
 
 Production window keys are always:
 
@@ -78,6 +81,12 @@ Run the real production schedule locally:
 ```bash
 npm run schedule:run -- --slot 08:00
 npm run schedule:run -- --slot 12:00
+```
+
+Run the production catch-up check locally:
+
+```bash
+npm run schedule:catch-up
 ```
 
 ## Duplicate Protection
@@ -190,8 +199,9 @@ Manual options:
 - `08:00`: manual test-next send for the 08:00 slot; does not update `storage/state.json`
 - `12:00`: manual test-next send for the 12:00 slot; does not update `storage/state.json`
 - `test`: basic test send that does not update `storage/state.json`
+- `catch-up`: production catch-up; sends any due missing 08:00/12:00 windows and updates `storage/state.json`
 
-Only scheduled runs update production `storage/state.json`. This prevents a manual test from marking a real 08:00 or 12:00 production window as completed before the actual schedule time.
+Only scheduled runs and explicit `catch-up` update production `storage/state.json`. This prevents a manual test from marking a real 08:00 or 12:00 production window as completed before the actual schedule time.
 
 After a successful production send, GitHub Actions commits and pushes only:
 

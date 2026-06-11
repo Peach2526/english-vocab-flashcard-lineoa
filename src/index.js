@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import util from 'node:util';
 import { getConfig } from './config.js';
 import { logger } from './logger.js';
 import { readState, writeState } from './stateStore.js';
@@ -6,7 +7,7 @@ import { readVocabulary, markVocabularyUsed, selectVocabularyItems } from './voc
 import { renderFlashcards } from './renderFlashcard.js';
 import { uploadImages } from './uploadCloudinary.js';
 import { sendFlashcardsToLine } from './lineClient.js';
-import { lineHeader, resolveSlot, windowKey as makeWindowKey } from './time.js';
+import { dueSlotsForBangkokNow, lineHeader, resolveSlot, windowKey as makeWindowKey } from './time.js';
 import { cleanGeneratedArtifacts } from './cleanup.js';
 import { statePath, testStatePath } from './paths.js';
 
@@ -27,9 +28,7 @@ function usesAdvancingTestState(mode) {
   return mode === 'send-test-next';
 }
 
-async function main() {
-  const mode = getArg('mode', 'dry-run');
-  const slot = resolveSlot(getArg('slot', process.env.SLOT));
+async function runSingle(mode, slot) {
   const config = getConfig(mode);
   const currentWindowKey = makeWindowKey(slot);
 
@@ -145,10 +144,36 @@ async function main() {
   });
 }
 
+async function main() {
+  const mode = getArg('mode', 'dry-run');
+
+  if (mode === 'catch-up') {
+    const dueSlots = dueSlotsForBangkokNow();
+    await logger.info('Catch-up run resolved due slots', { dueSlots });
+
+    if (dueSlots.length === 0) {
+      await logger.info('Catch-up run found no due slots yet');
+      return;
+    }
+
+    for (const slot of dueSlots) {
+      await runSingle('schedule', slot);
+    }
+    return;
+  }
+
+  const slot = resolveSlot(getArg('slot', process.env.SLOT));
+  await runSingle(mode, slot);
+}
+
 main().catch(async (error) => {
   await logger.error('Run failed', {
-    error: error.message,
-    stack: error.stack
+    errorName: error?.name,
+    errorMessage: error?.message || String(error),
+    errorCode: error?.code,
+    errorHttpCode: error?.http_code,
+    stack: error?.stack,
+    errorDetails: util.inspect(error, { depth: 4 })
   });
   process.exitCode = 1;
 });
