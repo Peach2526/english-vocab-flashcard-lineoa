@@ -1,13 +1,19 @@
 {
   "usedIds": {
     "economics": [
-      "eco-001"
+      "eco-001",
+      "eco-002",
+      "eco-003"
     ],
     "politics": [
-      "pol-001"
+      "pol-001",
+      "pol-002",
+      "pol-003"
     ],
     "military": [
-      "mil-001"
+      "mil-001",
+      "mil-002",
+      "mil-003"
     ]
   },
   "sentWindows": {
@@ -863,6 +869,34 @@
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783187254/english-vocab-flashcards/2026-07-05T1200%2B0700/economics-eco-001.png",
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783187254/english-vocab-flashcards/2026-07-05T1200%2B0700/politics-pol-001.png",
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783187255/english-vocab-flashcards/2026-07-05T1200%2B0700/military-mil-001.png"
+      ]
+    },
+    "2026-07-06T08:00+07:00": {
+      "sentAt": "2026-07-05T17:14:00.891Z",
+      "slot": "08:00",
+      "itemIds": [
+        "eco-002",
+        "pol-002",
+        "mil-002"
+      ],
+      "imageUrls": [
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271638/english-vocab-flashcards/2026-07-06T0800%2B0700/economics-eco-002.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271638/english-vocab-flashcards/2026-07-06T0800%2B0700/politics-pol-002.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271639/english-vocab-flashcards/2026-07-06T0800%2B0700/military-mil-002.png"
+      ]
+    },
+    "2026-07-06T12:00+07:00": {
+      "sentAt": "2026-07-05T17:14:06.034Z",
+      "slot": "12:00",
+      "itemIds": [
+        "eco-003",
+        "pol-003",
+        "mil-003"
+      ],
+      "imageUrls": [
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271643/english-vocab-flashcards/2026-07-06T1200%2B0700/economics-eco-003.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271644/english-vocab-flashcards/2026-07-06T1200%2B0700/politics-pol-003.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1783271644/english-vocab-flashcards/2026-07-06T1200%2B0700/military-mil-003.png"
       ]
     }
   }
