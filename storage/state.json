@@ -11,7 +11,9 @@
       "eco-008",
       "eco-009",
       "eco-010",
-      "eco-011"
+      "eco-011",
+      "eco-012",
+      "eco-013"
     ],
     "politics": [
       "pol-001",
@@ -24,7 +26,9 @@
       "pol-008",
       "pol-009",
       "pol-010",
-      "pol-011"
+      "pol-011",
+      "pol-012",
+      "pol-013"
     ],
     "military": [
       "mil-001",
@@ -37,7 +41,9 @@
       "mil-008",
       "mil-009",
       "mil-010",
-      "mil-011"
+      "mil-011",
+      "mil-012",
+      "mil-013"
     ]
   },
   "sentWindows": {
@@ -1313,6 +1319,34 @@
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784481405/english-vocab-flashcards/2026-07-20T1200%2B0700/economics-eco-011.png",
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784481406/english-vocab-flashcards/2026-07-20T1200%2B0700/politics-pol-011.png",
         "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784481407/english-vocab-flashcards/2026-07-20T1200%2B0700/military-mil-011.png"
+      ]
+    },
+    "2026-07-21T08:00+07:00": {
+      "sentAt": "2026-07-20T17:03:09.351Z",
+      "slot": "08:00",
+      "itemIds": [
+        "eco-012",
+        "pol-012",
+        "mil-012"
+      ],
+      "imageUrls": [
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566986/english-vocab-flashcards/2026-07-21T0800%2B0700/economics-eco-012.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566987/english-vocab-flashcards/2026-07-21T0800%2B0700/politics-pol-012.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566988/english-vocab-flashcards/2026-07-21T0800%2B0700/military-mil-012.png"
+      ]
+    },
+    "2026-07-21T12:00+07:00": {
+      "sentAt": "2026-07-20T17:03:14.844Z",
+      "slot": "12:00",
+      "itemIds": [
+        "eco-013",
+        "pol-013",
+        "mil-013"
+      ],
+      "imageUrls": [
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566992/english-vocab-flashcards/2026-07-21T1200%2B0700/economics-eco-013.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566993/english-vocab-flashcards/2026-07-21T1200%2B0700/politics-pol-013.png",
+        "https://res.cloudinary.com/dy4rqxua0/image/upload/v1784566993/english-vocab-flashcards/2026-07-21T1200%2B0700/military-mil-013.png"
       ]
     }
   }
